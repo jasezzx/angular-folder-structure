@@ -1,1 +1,110 @@
 /* You can add global styles to this file, and also import other style files */
+$border-grey: 1px solid grey;
+$border-black: 1px solid black;
+$border-hover: rgb(71, 71, 71);
+$dent: 10px;
+$left: -(13px);
+$text: black;
+$text-hover: #000;
+
+body {
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+}
+
+.icon-folder {
+  max-width: 20px;
+}
+
+.icon-file {
+  max-width: 15px;
+}
+
+.icon-folder,
+.icon-file {
+  margin-right: 5px;
+  height: auto;
+}
+
+.sub-folder-container {
+  li {
+    list-style-type: none;
+    margin: 10px;
+    position: relative;
+    &:before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      left: $left;
+      border-left: $border-grey;
+      border-bottom: $border-grey;
+      width: $dent;
+      height: 26px;
+    }
+    &:after {
+      position: absolute;
+      content: "";
+      top: 16px;
+      left: $left;
+      border-left: $border-grey;
+      border-top: $border-grey;
+      width: $dent;
+      height: 100%;
+    }
+    &:last-child:after {
+      display: none;
+    }
+
+    .sub-title-container {
+      display: inline-flex;
+      justify-content: space-evenly;
+      padding: 10px 15px;
+      color: $text;
+      text-decoration: none;
+      border: 1px solid white;
+      border-radius: 5px;
+      &:hover,
+      &:focus {
+        color: $text-hover;
+        border-color: $border-hover;
+        & + ol {
+          li {
+            span {
+              color: $text-hover;
+            }
+          }
+        }
+        .add-button,
+        .del-button {
+          display: inline-block;
+        }
+      }
+
+      &:hover + ol,
+      &:focus + ol {
+        li {
+          &:after,
+          &:before {
+            border-color: $border-hover;
+          }
+        }
+      }
+    }
+  }
+  .sub-title-container {
+    display: inline-flex;
+    justify-content: space-evenly;
+    padding: 10px 15px;
+    color: $text;
+    text-decoration: none;
+    border: 1px solid white;
+    border-radius: 5px;
+    &:hover {
+      color: $text-hover;
+      border-color: $border-hover;
+      .btn-add,
+      .btn-del {
+        display: inline-block;
+      }
+    }
+  }
+}

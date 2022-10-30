@@ -1,0 +1,52 @@
+<div [ngClass]="isInSubTree ? '' : 'new-folder-dialog-container'">
+  <div class="btns-wrapper" *ngIf="isSelectType; else showDialog">
+    <div class="btns-group">
+      <button
+        class="btn-file"
+        aria-lable="Select to create a file button"
+        (click)="selectAction('file')"
+      >
+        File
+      </button>
+      <button
+        class="btn-folder"
+        aria-lable="Select to create a folder button"
+        (click)="selectAction('folder')"
+      >
+        Folder
+      </button>
+    </div>
+  </div>
+
+  <ng-template #showDialog>
+    <div class="dialog-wrapper">
+      <img
+        [ngClass]="selectedType === 'folder' ? 'icon-folder' : 'icon-file'"
+        alt=""
+        [src]="selectedType === 'folder' ? folderIconUrl : fileIconUrl"
+      />
+      <input
+        type="text"
+        name="name"
+        aria-label="Input your folder or file name here"
+        [formControl]="inputValue"
+      />
+      <button
+        type="submit"
+        class="btn-confirm"
+        aria-label="Confirm to create a new folder button"
+        (click)="createNodeAction('confirm')"
+      >
+        &#10003;
+      </button>
+      <button
+        type="submit"
+        class="btn-cancel"
+        aria-label="Cancel to create a new folder button"
+        (click)="createNodeAction('cancel')"
+      >
+        &#10005;
+      </button>
+    </div>
+  </ng-template>
+</div>

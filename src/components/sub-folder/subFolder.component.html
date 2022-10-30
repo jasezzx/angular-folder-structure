@@ -1,0 +1,24 @@
+<ol>
+  <li *ngFor="let child of children">
+    <sub-folder-title
+      [child]="child"
+      (addActionEvent)="handleAddChildAction($event)"
+    ></sub-folder-title>
+    <sub-folder
+      [children]="child?.children"
+      *ngIf="child.children"
+    ></sub-folder>
+  </li>
+  <li
+    *ngIf="
+      (isShowSelectType && isShowDialog) ||
+      (isSubShowSelectType && isSubShowDialog)
+    "
+  >
+    <new-folder-dialog
+      [isSelectType]="isShowSelectType || isSubShowSelectType"
+      (createNodeActionEvent)="handleCreateNodeAction($event)"
+      [isInSubTree]="true"
+    ></new-folder-dialog>
+  </li>
+</ol>

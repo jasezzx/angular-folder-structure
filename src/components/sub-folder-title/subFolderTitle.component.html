@@ -1,0 +1,24 @@
+<div class="sub-title-container">
+  <img
+    [ngClass]="child?.type === 'folder' ? 'icon-folder' : 'icon-file'"
+    alt=""
+    [src]="child?.type === 'folder' ? folderIconUrl : fileIconUrl"
+  />
+  <span>{{ child?.name }}</span>
+
+  <button
+    class="btn-add"
+    aria-label="create new folder or file button"
+    (click)="CreateNodeAction({ action: 'add', child })"
+    *ngIf="child?.type === 'folder'"
+  >
+    &#43;
+  </button>
+  <button
+    class="btn-del"
+    aria-label="delete current folder or file button"
+    (click)="CreateNodeAction({ action: 'del', child })"
+  >
+    &#10005;
+  </button>
+</div>

@@ -1,0 +1,26 @@
+.header {
+  background-color: black;
+  height: 100px;
+  color: white;
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  padding: 15px;
+}
+
+button {
+  background-color: black;
+  color: white;
+  height: 40px;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.folder-container {
+  padding: 10px 20px 0 20px;
+}
